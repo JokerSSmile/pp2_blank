@@ -14,18 +14,24 @@ void PrintInfo()
 	cout << "4 - for event" << endl;
 }
 
-int main(int argc, *char argv[])
+int main(int argc, char* argv[])
 {
 	CBank* bank = new CBank();
 	CBankClient* client1 = bank->CreateClient();
 	CBankClient* client2 = bank->CreateClient();
 
-
+	if (argc > 1)
+	{
+		if (argv[0] == "/?")
+		{
+			PrintInfo();
+		}
+	}
 
 	// TODO: WaitForMultipleObjects
 	while (true)
 	{
-		//WaitForMultipleObjects(bank->GetClientCount(), )
+		bank->WaitForClients();
 	}
 
     return 0;
