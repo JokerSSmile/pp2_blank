@@ -39,6 +39,11 @@ void CBank::UpdateClientBalance(CBankClient &client, int value)
 	}
 }
 
+size_t CBank::GetClientCount()
+{
+	return m_clients.size();
+}
+
 
 int CBank::GetTotalBalance()
 {
@@ -54,5 +59,5 @@ void CBank::SetTotalBalance(int value)
 void CBank::SomeLongOperations()
 {
 	//fixed TODO:
-	Sleep(150);
+	Sleep(200);
 }

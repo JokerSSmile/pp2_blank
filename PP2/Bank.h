@@ -10,6 +10,7 @@ public:
 	CBank();
 	CBankClient* CreateClient();
 	void UpdateClientBalance(CBankClient& client, int value);
+	size_t GetClientCount();
 
 private:
 	std::vector<CBankClient> m_clients;
