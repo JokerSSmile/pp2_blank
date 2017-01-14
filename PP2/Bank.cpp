@@ -33,8 +33,10 @@ void CBank::UpdateClientBalance(CBankClient &client, int value)
 	if (totalBalance != GetTotalBalance() + value) {
 		std::cout << "! ERROR !" << std::endl;
 	}
-
-	SetTotalBalance(totalBalance);
+	else
+	{
+		SetTotalBalance(totalBalance);
+	}
 }
 
 
@@ -51,5 +53,6 @@ void CBank::SetTotalBalance(int value)
 
 void CBank::SomeLongOperations()
 {
-	// TODO
+	//fixed TODO:
+	Sleep(150);
 }
