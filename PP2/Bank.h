@@ -2,12 +2,13 @@
 #include <iostream>
 #include <vector>
 
+#include "SynchronizationPrimitives.h"
 #include "BankClient.h"
 
 class CBank
 {
 public:
-	CBank();
+	CBank(const unsigned& clientsCount, SyncPrimitives primitivesType);
 	CBankClient* CreateClient();
 	void UpdateClientBalance(CBankClient& client, int value);
 	size_t GetClientsCount();
@@ -17,6 +18,7 @@ private:
 	std::vector<CBankClient> m_clients;
 	std::vector<HANDLE> m_threads;
 	int m_totalBalance;
+	CSynchronizationPrimitives m_syncPrimitives;
 
 	int GetTotalBalance();
 	void SetTotalBalance(int value);

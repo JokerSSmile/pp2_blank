@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "Bank.h"
 #include "BankClient.h"
+#include "SynchronizationPrimitives.h"
 
 using namespace std;
 
@@ -16,9 +17,9 @@ void PrintInfo()
 
 int main(int argc, char* argv[])
 {
-	CBank* bank = new CBank();
-	CBankClient* client1 = bank->CreateClient();
-	CBankClient* client2 = bank->CreateClient();
+	CBank* bank = new CBank(2, SyncPrimitives::CriticalSection);
+	//CBankClient* client1 = bank->CreateClient();
+	//CBankClient* client2 = bank->CreateClient();
 
 	if (argc > 1)
 	{
@@ -28,7 +29,7 @@ int main(int argc, char* argv[])
 		}
 	}
 
-	// TODO: WaitForMultipleObjects
+	// fixed TODO: WaitForMultipleObjects
 	while (true)
 	{
 		bank->WaitForClients();
