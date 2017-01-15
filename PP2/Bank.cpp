@@ -58,10 +58,9 @@ size_t CBank::GetClientsCount()
 	return m_clients.size();
 }
 
-
 DWORD CBank::WaitForClients()
 {
-	return WaitForMultipleObjects(GetClientsCount(), m_threads.data(), true, INFINITY);
+	return WaitForMultipleObjects(DWORD(GetClientsCount()), m_threads.data(), true, INFINITY);
 }
 
 
